@@ -18,7 +18,6 @@ public class AccessLog implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ip_address")
     @JsonProperty("IpAddress")
     private String IPAddress;
 
@@ -37,14 +36,9 @@ public class AccessLog implements Serializable {
     @JsonIgnore
     private Date createdDate;
 
-    public AccessLog() {
+    @JsonProperty("userId")
+    private Long userId;
 
-    }
-
-    public AccessLog(String IPAddress, String URI, RequestMethod requestMethod, String requestBody) {
-        this.IPAddress = IPAddress;
-        this.URI = URI;
-        this.setRequestMethod(requestMethod);
-        this.setRequestBody(requestBody);
-    }
+    @JsonProperty("assetFileId")
+    private Long assetFileId;
 }
