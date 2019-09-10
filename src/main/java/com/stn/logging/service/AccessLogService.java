@@ -21,9 +21,10 @@ public class AccessLogService {
         if (accessLog != null) {
             try {
                 accessLogQueueSender.send(accessLog);
-                System.out.println("Message has been sent successfully to Queue.");
+                String message = "Message has been sent successfully to Queue.";
+                System.out.println(message);
                 result.put("status", HttpStatus.OK.value());
-                result.put("message", "Message has been sent successfully to Queue.");
+                result.put("message", message);
                 status = HttpStatus.OK;
             } catch (Exception ex) {
                 result.put("status", HttpStatus.UNPROCESSABLE_ENTITY.value());
